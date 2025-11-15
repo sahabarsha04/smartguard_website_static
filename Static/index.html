@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartGuard-Surveillance Control Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>SmartGuard</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline" id="headerLoginBtn">Login</a>
+                    <a href="#" class="btn btn-primary" id="headerRegisterBtn">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Smart Surveillance and Security</h2>
+            <p>Advanced Intruder Detection System using Raspberry Pi 5 with real-time monitoring and cloud storage capabilities.</p>
+            <a href="#about" class="btn btn-primary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Project</h2>
+                <p>Our Smart Surveillance System leverages cutting-edge technology to provide comprehensive security solutions for homes and businesses.</p>
+            </div>
+            <div class="features" id="features">
+                <div class="feature-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Monitor your premises in real-time with high-definition cameras and instant alerts.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Powered Detection</h3>
+                    <p>Advanced AI algorithms accurately detect intruders and suspicious activities.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Storage</h3>
+                    <p>All footage is securely stored in the cloud with easy access from anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Section -->
+    <section class="auth-section" id="auth">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-tab="login">Login</div>
+                    <div class="auth-tab" data-tab="register">Register</div>
+                </div>
+                
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <a href="#" class="forgot-password" id="forgotPassword">Forgot Password?</a>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+                
+                <form class="auth-form" id="forgotForm">
+                    <div class="form-group">
+                        <label for="forgotEmail">Email</label>
+                        <input type="email" id="forgotEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+                    <a href="#" class="forgot-password" id="backToLogin">Back to Login</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h2>Admin Dashboard</h2>
+                    <p>Welcome back, <span id="userName">Administrator</span></p>
+                </div>
+                <div>
+                    <button class="btn btn-outline" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+            
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-header">
+                    <img src="" alt="Profile" class="profile-image" id="profileImage">
+                    <div class="profile-info">
+                        <h3 id="profileName">Administrator</h3>
+                        <p id="profileEmail">admin@smartguard.com</p>
+                        <p id="profileRole" class="status-badge status-authorized">Admin</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Update Profile</label>
+                    <div class="dataset-form">
+                        <input type="text" id="updateName" class="form-control" placeholder="Full Name" value="Administrator">
+                        <input type="email" id="updateEmail" class="form-control" placeholder="Email" value="admin@smartguard.com">
+                        <button class="btn btn-primary" id="updateProfileBtn">Update Profile</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="datasets">Datasets</button>
+                <button class="tab-btn" data-tab="unauthorized">Unauthorized Access</button>
+                <button class="tab-btn" data-tab="monitoring">Live Monitoring</button>
+            </div>
+            
+            <!-- Datasets Tab -->
+            <div class="tab-content active" id="datasets-tab">
+                <div class="dataset-management">
+                    <div class="section-header">
+                        <h3>Create New Dataset</h3>
+                    </div>
+                    <div class="dataset-form">
+                        <input type="text" id="datasetName" class="form-control" placeholder="Dataset Name (Person's Name)">
+                        <input type="text" id="datasetDesc" class="form-control" placeholder="Description">
+                        <button class="btn btn-primary" id="createDatasetBtn">Create Dataset</button>
+                    </div>
+                    
+                    <div class="section-header">
+                        <h3>Your Datasets</h3>
+                    </div>
+                    <div class="datasets-list" id="datasetsList">
+                        <!-- Datasets will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="upload-section">
+                    <div class="section-header">
+                        <h3>Add Images to Dataset</h3>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Dataset</label>
+                        <select id="datasetSelect" class="form-control">
+                            <option value="">Select a dataset</option>
+                        </select>
+                    </div>
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Drop images here or click to browse</h4>
+                        <p>Supported formats: JPG, PNG, GIF (Max 5MB each)</p>
+                        <input type="file" id="imageUpload" multiple accept="image/*" style="display: none;">
+                    </div>
+                    <button class="btn btn-primary btn-block" id="uploadImagesBtn" disabled>Upload Images</button>
+                </div>
+            </div>
+            
+            <!-- Unauthorized Access Tab -->
+            <div class="tab-content" id="unauthorized-tab">
+                <div class="database-section">
+                    <div class="section-header">
+                        <h3>Unauthorized Access Detections</h3>
+                        <span class="status-badge status-unauthorized" id="unauthorizedCount">0 detections</span>
+                    </div>
+                    <div class="image-grid" id="unauthorizedImages">
+                        <!-- Unauthorized images will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Monitoring Tab -->
+            <div class="tab-content" id="monitoring-tab">
+                <div class="database-section">
+                    <div class="section-header">
+                        <h3>Live Monitoring</h3>
+                        <span class="status-badge status-authorized">Active</span>
+                    </div>
+                    <div class="image-grid">
+                        <div class="image-card">
+                            <img src="https://via.placeholder.com/300x200/1a73e8/ffffff?text=Front+Entrance" alt="Front Entrance">
+                            <div class="image-info">
+                                <h4>Live Monitoring</h4>
+                                <p><span class="status-badge status-authorized">Authorized</span></p>
+                                <p>2025-10-15 14:23:45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>SmartGuard</h3>
+                    <p>Advanced surveillance and security solutions for modern needs. Protecting what matters most with cutting-edge technology.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#features" class="footer-link">Features</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Jalpaiguri Government Engineering College </li>
+                        <li><i class="fas fa-phone"></i>+91 9679393037</li>
+                        <li><i class="fas fa-envelope"></i> support@smartguard.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SmartGuard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
